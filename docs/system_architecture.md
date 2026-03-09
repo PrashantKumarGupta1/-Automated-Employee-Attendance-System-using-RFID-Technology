@@ -38,7 +38,7 @@ Linux System Logging
 
 ## Block Diagram
 
-![System Architecture](../images/block_diagram.png)
+![System Architecture](../images/system_design.png)
 
 ---
 
