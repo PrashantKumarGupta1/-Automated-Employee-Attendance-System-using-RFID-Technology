@@ -1,4 +1,4 @@
-# 🏗 System Architecture
+<img width="1239" height="853" alt="image" src="https://github.com/user-attachments/assets/de38819e-f2a3-4b8c-97e7-2856361d619a" /># 🏗 System Architecture
 
 ## Overview
 
@@ -99,6 +99,12 @@ The PC receives attendance records and stores them in a **database or text file*
 ## Architecture Flow
 
 **RFID Card → EM-18 RFID Reader → 8052 Microcontroller (UID Capture & Verification) → LPC2129 Microcontroller → RTC Timestamp → LCD Display & Buzzer → Data Sent to PC → Linux Attendance Logging**
+
+---
+
+## Block Diagram
+
+
 
 ---
 
