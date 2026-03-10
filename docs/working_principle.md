@@ -107,3 +107,15 @@ LCD message returns to:
 ```
 SCAN YOUR ID
 ```
+
+---
+
+## OUTPUT EXAMPLE:
+
+Below is the real time output.
+
+<p align="center">
+  <img src="../images/project_output.png" width="500">
+</p>
+
+> *Actual real time output of Automated Employee Attendance System using RFID Technology.*
