@@ -1,4 +1,4 @@
-<img width="1239" height="853" alt="image" src="https://github.com/user-attachments/assets/de38819e-f2a3-4b8c-97e7-2856361d619a" /># 🏗 System Architecture
+# 🏗 System Architecture
 
 ## Overview
 
@@ -104,8 +104,11 @@ The PC receives attendance records and stores them in a **database or text file*
 
 ## Block Diagram
 
+<p align="center">
+  <img src="../images/block_diagram.png" width="500">
+</p>
 
-
+> *Actual block diagram of Automated Employee Attendance System using RFID Technology.*
 ---
 
 ## Key Features
