@@ -138,8 +138,9 @@ Typical configuration:
 ## Hardware Implementation
 
 Below is the real hardware implementation of the project.
+
 <p align="center">
   <img src="../images/project_hardware.png" width="500">
 </p>
 
-This image shows the complete hardware setup of the RFID attendance system.
+> *Actual hardware setup of Automated Employee Attendance System using RFID Technology.*
