@@ -92,7 +92,9 @@ Time : 09:02 AM
 
 # Software Flowchart
 
-![System Flow](../images/system_design.png)
+<p align="center">
+  <img src="../images/system_design.png" width="500">
+</p>
 
 > *Actual flow of the Automated Employee Attendance System using RFID Technology.*
 ---
