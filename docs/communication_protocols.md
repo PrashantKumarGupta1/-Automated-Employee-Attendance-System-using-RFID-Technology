@@ -88,23 +88,45 @@ This ensures accurate **timestamp recording for each attendance entry**.
 
 ---
 
-# 3️⃣ GPIO Interface
+## 3️⃣ GPIO Interface
 
-GPIO pins of the LPC2129 are used to control the **16×2 LCD display**.
+GPIO pins of the LPC2129 are used to control peripheral devices such as the LCD display, buzzer, and LED indicators.
 
-The LCD operates in **4-bit mode** to reduce the number of required pins.
+### 📟 LCD Interface
 
-### LCD Connections
+The **16×2 LCD** operates in **4-bit mode** to reduce the number of required pins.
 
 | LCD Pin | Function |
-|-------|---------|
+|-------|--------|
 | RS | Register Select |
 | EN | Enable |
 | D4–D7 | Data Pins |
 
-### LCD Messages
+---
 
-Example messages displayed to the user:
+### 🔔 Buzzer Interface
+
+A **buzzer** is connected to a GPIO pin to provide audible feedback.
+
+**Purpose**
+- Indicates successful RFID scan
+- Alerts for invalid card detection
+
+---
+
+### 💡 LED Indicator
+
+An **LED indicator** is connected to a GPIO pin for visual status indication.
+
+**Purpose**
+- Shows system activity
+- Indicates successful attendance recording
+
+---
+
+### 📺 LCD Messages
+
+Example messages displayed:
 ```
 SCAN YOUR ID
 Attendance Recorded
