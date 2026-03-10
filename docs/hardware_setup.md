@@ -8,7 +8,7 @@ The system is built using the **8051 microcontroller development board (Redolabz
 
 ---
 
-# Hardware Components
+## Hardware Components
 
 | Component | Description |
 |----------|-------------|
@@ -22,7 +22,7 @@ The system is built using the **8051 microcontroller development board (Redolabz
 
 ---
 
-# 1️⃣ Microcontroller Board
+## 1️⃣ Microcontroller Board
 
 The **8051 microcontroller** acts as the central controller.
 
@@ -40,7 +40,7 @@ Development board used:
 
 ---
 
-# 2️⃣ RFID Reader
+## 2️⃣ RFID Reader
 
 The RFID reader detects RFID tags and reads their unique identification number.
 
@@ -56,7 +56,7 @@ Connection type:
 
 ---
 
-# 3️⃣ RFID Cards (Employee Tags)
+## 3️⃣ RFID Cards (Employee Tags)
 
 Each employee is assigned a **unique RFID card**.
 
@@ -68,7 +68,7 @@ When the card is scanned:
 
 ---
 
-# 4️⃣ Real Time Clock (RTC)
+## 4️⃣ Real Time Clock (RTC)
 
 The RTC module keeps track of real-time date and time.
 
@@ -85,7 +85,7 @@ Time: 09:02 AM
 
 ---
 
-# 5️⃣ LCD Display
+## 5️⃣ LCD Display
 
 A **16x2 LCD display** is used to provide user feedback.
 
@@ -102,7 +102,7 @@ Access Denied
 
 ---
 
-# 6️⃣ Buzzer
+## 6️⃣ Buzzer
 
 The buzzer provides audio feedback.
 
@@ -115,7 +115,7 @@ Usage:
 
 ---
 
-# Power Supply
+## Power Supply
 
 The system requires a **stable regulated power supply**.
 
@@ -128,7 +128,7 @@ Typical configuration:
 
 ---
 
-# Hardware Implementation
+## Hardware Implementation
 
 Below is the real hardware implementation of the project.
 <p align="center">
