@@ -2,9 +2,9 @@
 
 ## Overview
 
-The Automated RFID Attendance System consists of several hardware components that work together to detect RFID cards and record attendance automatically.
+The Automated RFID Attendance System consists of multiple hardware modules integrated to provide automatic employee attendance recording.
 
-The system is built using the **8051 microcontroller development board (Redolabz)**.
+The system uses **two microcontrollers** to handle different tasks efficiently.
 
 ---
 
@@ -12,82 +12,73 @@ The system is built using the **8051 microcontroller development board (Redolabz
 
 | Component | Description |
 |----------|-------------|
-| 8051 Microcontroller | Main controller of the system |
-| RFID Reader Module | Reads RFID card UID |
-| RFID Tags | Unique employee identification cards |
-| RTC Module | Provides real-time date and time |
-| 16x2 LCD Display | Displays attendance messages |
-| Buzzer | Provides audio feedback |
-| Power Supply | Provides operating voltage |
+| 8051 Microcontroller | Handles RFID card reading |
+| LPC2129 Microcontroller | Main processing controller |
+| EM-18 RFID Reader | Reads RFID tag IDs |
+| RFID Cards | Unique employee identification cards |
+| RTC Module | Provides date and time |
+| 16×2 LCD Display | Displays system messages |
+| Power Supply | Provides regulated voltage |
 
 ---
 
-## 1️⃣ Microcontroller Board
+## 1️⃣ EM-18 RFID Reader
 
-The **8051 microcontroller** acts as the central controller.
-
-Functions:
-
-- Reads RFID data
-- Processes employee ID
-- Controls LCD display
-- Records attendance
-- Activates buzzer
-
-Development board used:
-
-**Redolabz 8051 Development Board**
-
----
-
-## 2️⃣ RFID Reader
-
-The RFID reader detects RFID tags and reads their unique identification number.
+The **EM-18 RFID reader** detects RFID cards and reads their unique identification number.
 
 Features:
 
-- Contactless reading
-- Fast scanning
-- Unique ID detection
+- Contactless scanning
+- 125 kHz operating frequency
+- Serial communication output
+- 9600 baud rate transmission
 
-Connection type:
-
-- Serial communication (UART)
+The reader sends the **12-digit tag ID** to the 8051 microcontroller.
 
 ---
 
-## 3️⃣ RFID Cards (Employee Tags)
+## 2️⃣ 8051 Microcontroller
 
-Each employee is assigned a **unique RFID card**.
+The **8051 microcontroller acts as the RFID reader interface controller**.
 
-When the card is scanned:
+Responsibilities:
 
-1. RFID reader detects UID
-2. Microcontroller receives UID
-3. System verifies the employee
+- Receive RFID data from EM-18
+- Process serial data
+- Forward tag ID to LPC2129 using UART communication
+
+This microcontroller acts as an intermediate layer between the RFID reader and the main controller.
+
+---
+
+## 3️⃣ LPC2129 Microcontroller
+
+The **LPC2129 ARM7 microcontroller** is the main controller of the system.
+
+Functions include:
+
+- Receiving RFID tag ID from 8051
+- Communicating with RTC module
+- Controlling LCD display
+- Sending attendance records to PC
 
 ---
 
 ## 4️⃣ Real Time Clock (RTC)
 
-The RTC module keeps track of real-time date and time.
+The RTC module is connected to LPC2129 using the **I²C protocol**.
 
 Functions:
 
-- Provides timestamp for attendance
-- Maintains accurate time even when system restarts
-
-Example:
-```
-Date: 12/04/2025
-Time: 09:02 AM
-```
+- Maintains accurate date and time
+- Provides timestamps for attendance records
+- Uses battery backup to maintain time during power outages
 
 ---
 
 ## 5️⃣ LCD Display
 
-A **16x2 LCD display** is used to provide user feedback.
+A **16×2 LCD display** is used to show system messages.
 
 Example messages:
 ```
@@ -99,6 +90,7 @@ Attendance Marked
 Invalid Card
 Access Denied
 ```
+The LCD operates in **4-bit mode** using LPC2129 GPIO pins.
 
 ---
 
@@ -112,6 +104,21 @@ Usage:
 |------|---------------|
 | Valid card | Short beep |
 | Invalid card | Long beep |
+
+---
+
+## 7️⃣ PC Interface
+
+A Linux PC is connected to the LPC2129 through **UART communication**.
+
+The PC receives attendance records and stores them in a **database or text file**.
+
+Example data:
+```
+Employee ID : 1034
+Date : 12-04-2025
+Time : 09:02 AM
+```
 
 ---
 
