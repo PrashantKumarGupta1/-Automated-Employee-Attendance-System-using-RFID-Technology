@@ -15,6 +15,7 @@ This project implements an **RFID-based automated attendance system** that recor
 Each employee is assigned a unique RFID card. When the card is scanned, the system records the employee ID along with the current date and time.
 
 The Linux system logs employee attendance into a database file.
+
 ---
 
 ## Features
