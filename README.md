@@ -6,7 +6,7 @@ The system uses **RFID cards, dual microcontrollers, and real-time clock integra
 
 ---
 
-# 🚀 Project Overview
+## 🚀 Overview
 
 Traditional attendance systems are manual, time-consuming, and prone to errors such as proxy attendance.
 
@@ -16,7 +16,7 @@ Each employee is assigned a unique RFID card. When the card is scanned, the syst
 
 ---
 
-# 🧠 System Architecture
+## 🧠 System Architecture
 
 The system uses **two microcontrollers**:
 
@@ -42,7 +42,7 @@ PC Linux Terminal (UART)
 
 ---
 
-# ⚙ Hardware Components
+## ⚙ Hardware Components
 
 - 8051 Microcontroller
 - LPC2129 ARM7 Microcontroller
@@ -54,7 +54,7 @@ PC Linux Terminal (UART)
 
 ---
 
-# 💻 Software Tools
+## 💻 Software Tools
 
 | Tool | Purpose |
 |----|----|
@@ -65,7 +65,7 @@ PC Linux Terminal (UART)
 
 ---
 
-# 📁 Repository Structure
+## 📁 Repository Structure
 ```
 Automated-RFID-Attendance-System
 │
@@ -76,15 +76,20 @@ Automated-RFID-Attendance-System
 │ ├── software_design.md
 │ └── communication_protocols.md
 │
-├── code
-│ ├── 8051_rfid_reader
-│ └── lpc2129_main_controller
+├── src
+│ ├── 
+│ └── 
 │
 ├── simulation
 │ └── proteus_design.pdsprj
 │
 ├── images
-│ └── hardware_setup.jpg
+│ ├── block_diagram.png
+│ ├── flowchart.png
+│ ├── project_hardware.png
+│ ├── project_output.png
+│ ├── proteus_simulation.jpg
+│ └──system_flow.png
 │
 └── README.md
 ```
@@ -107,16 +112,14 @@ Automated-RFID-Attendance-System
 
 # 📷 Hardware Implementation
 
-Add your hardware image in the repository.
 
-```html
 <p align="center">
   <img src="images/project_hardware.jpg" width="600">
 </p>
 
 > *Actual Automated Employee Attendance System using RFID.*
 
-🔬 Simulation
+# 🔬 Simulation
 
 The system was simulated using Proteus Design Suite to verify:
 
