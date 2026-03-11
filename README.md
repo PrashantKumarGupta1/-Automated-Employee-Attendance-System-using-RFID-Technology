@@ -32,7 +32,7 @@ RFID Card
 EM-18 RFID Reader
 ↓
 8051 Microcontroller
-↓ UART
+↓ (UART)
 LPC2129 Microcontroller
 ↓
 RTC (I²C)
