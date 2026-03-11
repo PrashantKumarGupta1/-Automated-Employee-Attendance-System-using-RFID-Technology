@@ -2,8 +2,6 @@
 
 An embedded system project that automates employee attendance recording using RFID technology.
 
-The system uses **RFID cards, dual microcontrollers, and real-time clock integration** to record employee attendance accurately and transmit data to a computer system.
-
 ---
 
 ## 🚀 Overview
@@ -11,6 +9,8 @@ The system uses **RFID cards, dual microcontrollers, and real-time clock integra
 Traditional attendance systems are manual, time-consuming, and prone to errors such as proxy attendance.
 
 This project implements an **RFID-based automated attendance system** that records employee attendance quickly, securely, and efficiently.
+
+The system uses **RFID cards, dual microcontrollers, and real-time clock integration** to record employee attendance accurately and transmit data to a computer system.
 
 Each employee is assigned a unique RFID card. When the card is scanned, the system records the employee ID along with the current date and time.
 
