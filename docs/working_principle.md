@@ -113,12 +113,12 @@ SCAN YOUR ID
 
 ---
 
-## OUTPUT EXAMPLE:
+## Flowchart:
 
-Below is the real time output.
+Below is the flowchart.
 
 <p align="center">
-  <img src="../images/project_output.png" width="500">
+  <img src="../images/flowchart.png" width="500">
 </p>
 
-> *Actual real time output of Automated Employee Attendance System using RFID Technology.*
+> *Actual flowchart of Automated Employee Attendance System using RFID Technology.*
