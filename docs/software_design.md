@@ -293,5 +293,5 @@ Simulation verifies:
 - Microcontroller logic
 
 <p align="center">
-  <img src="../images/proteus_simulation.png" width="500">
+  <img src="../images/proteus_simulation.jpg" width="500">
 </p>
