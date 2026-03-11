@@ -94,20 +94,7 @@ The LCD operates in **4-bit mode** using LPC2129 GPIO pins.
 
 ---
 
-## 6️⃣ Buzzer
-
-The buzzer provides audio feedback.
-
-Usage:
-
-| Event | Buzzer Action |
-|------|---------------|
-| Valid card | Short beep |
-| Invalid card | Long beep |
-
----
-
-## 7️⃣ PC Interface
+## 6️⃣ PC Interface
 
 A Linux PC is connected to the LPC2129 through **UART communication**.
 
