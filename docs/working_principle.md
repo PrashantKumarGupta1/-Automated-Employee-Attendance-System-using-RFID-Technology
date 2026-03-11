@@ -52,8 +52,9 @@ Once LPC2129 receives the RFID ID:
 
 Example timestamp:
 ```
-Date : 12/04/2025
-Time : 09:02 AM
+09:02:49 AM
+12/04/2025
+MON
 ```
 
 ---
@@ -90,9 +91,8 @@ The LPC2129 sends the attendance record to a **Linux PC terminal via UART**.
 
 Example transmitted record:
 ```
-Employee ID : 1023
-Date : 12-04-2025
-Time : 09:02 AM
+4900C8FDDCA0 employee2
+IN TIME Mon Apr 12 09:02:49 2025
 ```
 
 The PC stores this information in a **database or log file**.
