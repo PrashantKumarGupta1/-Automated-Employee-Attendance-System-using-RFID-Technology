@@ -69,14 +69,14 @@ PC Linux Terminal (UART)
 ```
 Automated-RFID-Attendance-System
 │
-├── docs
+├── docs/
 │ ├── system_architecture.md
 │ ├── hardware_setup.md
 │ ├── working_principle.md
 │ ├── software_design.md
 │ └── communication_protocols.md
 │
-├── images
+├── images/
 │ ├── block_diagram.png
 │ ├── flowchart.png
 │ ├── project_hardware.png
@@ -84,14 +84,19 @@ Automated-RFID-Attendance-System
 │ ├── proteus_simulation.jpg
 │ └──system_flow.png
 │
-├── src
+├── src/
 │ ├── 
 │ └── 
 │
 │
-├── text_files
+├── text_files/
 │ ├── database
 │ └── log_file
+│
+├── include/
+│ └── header.h
+│
+│
 │
 ├── simulation
 │ └── proteus_design.pdsprj
