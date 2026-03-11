@@ -276,10 +276,10 @@ Repeat
 ---
 
 <p align="center">
-  <img src="../images/system_flow.png" width="500">
+  <img src="../images/flowchart.png" width="500">
 </p>
 
-> *Actual flow of the Automated Employee Attendance System using RFID Technology.*
+> *Actual flowchart of the Automated Employee Attendance System using RFID Technology.*
 ---
 
 # Simulation
