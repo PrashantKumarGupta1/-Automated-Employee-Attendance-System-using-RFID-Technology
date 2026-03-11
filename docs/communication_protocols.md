@@ -104,26 +104,6 @@ The **16×2 LCD** operates in **4-bit mode** to reduce the number of required pi
 
 ---
 
-### 🔔 Buzzer Interface
-
-A **buzzer** is connected to a GPIO pin to provide audible feedback.
-
-**Purpose**
-- Indicates successful RFID scan
-- Alerts for invalid card detection
-
----
-
-### 💡 LED Indicator
-
-An **LED indicator** is connected to a GPIO pin for visual status indication.
-
-**Purpose**
-- Shows system activity
-- Indicates successful attendance recording
-
----
-
 ### 📺 LCD Messages
 
 Example messages displayed:
