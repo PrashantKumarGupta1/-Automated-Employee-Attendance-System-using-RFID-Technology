@@ -93,6 +93,8 @@ Example transmitted record:
 ```
 4900C8FDDCA0 employee2
 IN TIME Mon Apr 12 09:02:49 2025
+4900C8FDDCA0 employee2
+OUT TIME Mon Apr 12 09:04:36 2025
 ```
 
 The PC stores this information in a **database or log file**.
