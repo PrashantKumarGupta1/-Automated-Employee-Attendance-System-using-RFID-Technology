@@ -210,9 +210,11 @@ Once a valid RFID card is detected:
 
 ### Example Output
 ```
-Employee ID : 105
-Date : 12/04/2025
-Time : 09:02 AM
+4900C8E53F5B employee1
+IN TIME Mon Apr 12 09:02:55 2025
+
+4900C8E53F5B employee1
+OUT TIME Mon Apr 12 09:05:36 2025
 ```
 
 ---
