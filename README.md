@@ -148,16 +148,21 @@ Simulation files are included in the repository.
 ✔ UART-based PC logging
 ✔ Scalable for organizational use
 
-## 📈 Future Improvements
+## 📈 Future Enhancement
 
 - Cloud-based attendance database
 - WiFi or IoT integration
 - Web dashboard for attendance monitoring
 - Mobile app integration
 
-## 👨‍💻 Author
+## 👨‍💻 About Author
 
-Prashant Kumar Gupta
+**Prashant kumar Gupta**                                                      
+*Embedded Systems Learner | C/C++ Programmer | ARM & Linux Enthusiast*                                      
+📧 Email: guptaprashant1012@gmail.com                                 
+[LinkedIn](https://www.linkedin.com/in/prashant-embedded)                        
+[GitHub](https://github.com/PrashantKumarGupta1)  
 
-Embedded Systems Enthusiast
-Project: RFID Attendance System
+## 📝 License
+
+This project is open-source and free to use for educational and learning purposes.
