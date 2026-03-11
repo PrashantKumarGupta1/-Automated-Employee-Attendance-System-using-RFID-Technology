@@ -10,15 +10,15 @@ Traditional attendance systems are manual, time-consuming, and prone to errors s
 
 This project implements an **RFID-based automated attendance system** that records employee attendance quickly, securely, and efficiently.
 
-The system uses **RFID cards, dual microcontrollers, and real-time clock integration** to record employee attendance accurately and transmit data to a computer system.
+The system uses **RFID cards 🪪, dual microcontrollers, and real-time clock integration** to record employee attendance accurately and transmit data to a computer system.
 
 Each employee is assigned a unique RFID card. When the card is scanned, the system records the employee ID along with the current date and time.
 
-The Linux system logs employee attendance into a database file.
+The Linux system logs 🖥 employee attendance into a database file.
 
 ---
 
-## Features
+## 🔧 Features
 
 - RFID Card based authentication
 - Real-time clock integration using DS1307
