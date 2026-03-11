@@ -2,86 +2,213 @@
 
 ## Overview
 
-The software for the RFID attendance system is developed using **Embedded C** and compiled using **Keil µVision IDE**.
+The software for the **RFID Based Employee Attendance System** is developed using **Embedded C/C++** and compiled using **Keil µVision IDE**.  
+The firmware runs on two microcontrollers working together to process RFID data and record attendance.
 
-The project uses **two separate firmware programs**:
+- **8051 Microcontroller** – Handles RFID card detection.
+- **LPC2129 Microcontroller** – Processes attendance data, retrieves time from RTC, controls LCD, and sends records to the PC.
 
-- 8051 firmware for RFID card reading
-- LPC2129 firmware for attendance processing
-
----
-
-# Development Tools
-
-| Tool | Purpose |
-|-----|--------|
-| Keil µVision | Embedded code compilation |
-| Embedded C | Programming language |
-| Proteus | Hardware simulation |
-| Linux Terminal | Attendance data storage |
+The software architecture ensures reliable communication between hardware components and the Linux-based attendance logging system.
 
 ---
 
-# Software Modules
+# 1️⃣ Software Requirements
+
+## Embedded C / C++
+
+**Purpose:**  
+Programming language used for developing firmware for both microcontrollers.
+
+**Reason for Use:**
+
+- Provides low-level hardware access
+- Efficient memory usage
+- Fast execution for embedded systems
+
+**Role in the Project**
+
+- Reading RFID card data
+- Communicating with the RTC module
+- Controlling the LCD display
+- Sending attendance data to the PC
 
 ---
 
-# 1️⃣ RFID Reader Module (8051)
+## Keil µVision IDE
 
-The 8051 program handles RFID card detection.
+**Function:**  
+Integrated Development Environment used for writing, compiling, and debugging embedded programs.
 
-Functions:
+**Features**
 
-- Receive serial data from EM-18
+- Embedded project management
+- Code debugging tools
+- Support for ARM7 microcontrollers such as LPC2129
+- Generation of HEX files for flashing
+
+---
+
+## Flash Magic
+
+**Function:**  
+Used to upload compiled firmware into the microcontroller flash memory.
+
+**Role in the Project**
+
+1. Connect microcontroller to PC via serial port
+2. Load compiled HEX file
+3. Program firmware into LPC2129
+
+---
+
+## Linux Operating System
+
+**Function:**  
+Provides the environment for running the serial communication program that receives attendance data.
+
+**Advantages**
+
+- Open-source platform
+- Stable serial communication
+- Easy data logging
+
+---
+
+## GCC Compiler
+
+**Function:**  
+Compiles C/C++ programs on the Linux system.
+
+**Usage in the Project**
+
+Used to compile the serial communication program:
+```
+gcc serial.c
+./a.out
+```
+
+The program reads attendance data transmitted from the microcontroller.
+
+---
+
+## Terminal Emulator
+
+**Function:**  
+Used for monitoring serial communication between the microcontroller and PC.
+
+**Role**
+
+- Debugging UART communication
+- Verifying attendance data transmission
+
+Examples include:
+
+- Minicom
+- GTKTerm
+- Serial Monitor
+
+---
+
+# 2️⃣ Software Architecture
+
+The system firmware is divided into two main parts.
+```
+RFID Card
+↓
+EM-18 RFID Reader
+↓
+8051 Microcontroller
+↓ (UART)
+LPC2129 Microcontroller
+↓
+RTC (I2C) + LCD (GPIO) + Linux PC (UART)
+```
+
+### Responsibilities
+
+| Controller | Responsibility |
+|-------------|---------------|
+| 8051 | Reads RFID tag ID |
+| LPC2129 | Processes attendance data |
+| Linux PC | Stores attendance logs |
+
+---
+
+# 3️⃣ RFID Reader Module (8051)
+
+The **8051 firmware** handles communication with the EM-18 RFID reader.
+
+### Tasks
+
+- Receive serial data from EM-18 RFID reader
 - Extract RFID tag ID
-- Forward tag ID to LPC2129 via UART
+- Send tag ID to LPC2129 via UART
 
-Pseudo logic:
+### Logic
 ```
 Wait for RFID card
-Read tag ID
-Send tag ID to LPC2129
+Receive tag ID
+Transmit ID to LPC2129
+Repeat
 ```
 
 ---
 
-# 3️⃣ RTC Communication Module
+# 4️⃣ LPC2129 Processing Module
 
-The LPC2129 communicates with the RTC module using the **I²C protocol**.
+The LPC2129 microcontroller performs the main system operations.
 
-The RTC provides:
+### Tasks
 
-- Date
-- Time
-
-Used to create timestamped attendance records.
+- Receive RFID tag ID from 8051
+- Verify tag data
+- Retrieve time from RTC module
+- Display messages on LCD
+- Send attendance record to PC
 
 ---
 
-# 4️⃣ LCD Display Module
+# 5️⃣ RTC Communication Module
 
-The LCD display shows system status messages.
+The LPC2129 communicates with the **Real Time Clock (RTC)** using the **I²C protocol**.
 
-Typical messages include:
+### Data Retrieved
+
+- Current Date
+- Current Time
+
+This allows the system to generate **timestamped attendance records**.
+
+---
+
+# 6️⃣ LCD Display Module
+
+A **16×2 LCD display** provides system status information.
+
+### Typical Messages
 ```
 SCAN YOUR ID
 Attendance Recorded
 Invalid Card
 ```
 
-The LCD operates in **4-bit GPIO mode**.
+### LCD Configuration
+
+- 4-bit communication mode
+- Controlled through LPC2129 GPIO pins
 
 ---
 
-# 5️⃣ Attendance Logging Module
+# 7️⃣ Attendance Logging Module
 
-Once a card is verified:
+Once a valid RFID card is detected:
 
-1. LPC2129 retrieves date and time
-2. Attendance record is created
-3. Data is sent to Linux terminal
+1. RFID ID is received by LPC2129
+2. Current time is fetched from RTC
+3. Attendance record is created
+4. Data is transmitted to the Linux terminal
 
-Example output:
+### Example Output
 ```
 Employee ID : 105
 Date : 12/04/2025
@@ -90,7 +217,61 @@ Time : 09:02 AM
 
 ---
 
-# Software Flowchart
+# 8️⃣ Serial Communication Program (Linux)
+
+A C program running on the Linux PC receives attendance records from the microcontroller.
+
+### Execution
+```
+gcc serial.c
+./a.out
+```
+
+### Functions
+
+- Reads UART serial data
+- Displays attendance logs
+- Stores records for future analysis
+
+---
+
+# 9️⃣ Simulation
+
+Before hardware implementation, the system was tested using **Proteus simulation**.
+
+### Simulation verifies:
+
+- Microcontroller logic
+- Serial communication
+- LCD display output
+- Data transmission
+
+Simulation files are included in the repository.
+
+---
+
+# 🔄 Software Flow
+```
+Start
+↓
+Initialize System
+↓
+Wait for RFID Card
+↓
+8051 Reads RFID Tag
+↓
+Send Tag to LPC2129
+↓
+LPC2129 Reads Time from RTC
+↓
+Display Result on LCD
+↓
+Send Attendance Data to PC
+↓
+Repeat
+```
+
+---
 
 <p align="center">
   <img src="../images/system_flow.png" width="500">
@@ -109,4 +290,6 @@ Simulation verifies:
 - LCD display output
 - Microcontroller logic
 
-Simulation files are included in the repository.
+<p align="center">
+  <img src="../images/proteus_simulation.png" width="500">
+</p>
