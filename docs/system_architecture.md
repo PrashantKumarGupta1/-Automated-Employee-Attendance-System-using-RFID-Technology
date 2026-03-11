@@ -98,7 +98,7 @@ The PC receives attendance records and stores them in a **database or text file*
 
 ## Architecture Flow
 
-**RFID Card → EM-18 RFID Reader → 8052 Microcontroller (UID Capture & Verification) → LPC2129 Microcontroller → RTC Timestamp → LCD Display & Buzzer → Data Sent to PC → Linux Attendance Logging**
+**RFID Card → EM-18 RFID Reader → 8052 Microcontroller (UID Capture & Verification) → LPC2129 Microcontroller → RTC Timestamp → LCD Display → Data Sent to PC → Linux Attendance Logging**
 
 ---
 
