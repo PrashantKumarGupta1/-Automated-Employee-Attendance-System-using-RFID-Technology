@@ -76,13 +76,6 @@ Automated-RFID-Attendance-System
 │ ├── software_design.md
 │ └── communication_protocols.md
 │
-├── src
-│ ├── 
-│ └── 
-│
-├── simulation
-│ └── proteus_design.pdsprj
-│
 ├── images
 │ ├── block_diagram.png
 │ ├── flowchart.png
@@ -91,12 +84,27 @@ Automated-RFID-Attendance-System
 │ ├── proteus_simulation.jpg
 │ └──system_flow.png
 │
+├── src
+│ ├── 
+│ └── 
+│
+│
+├── text_files
+│ ├── database
+│ └── log_file
+│
+├── simulation
+│ └── proteus_design.pdsprj
+│
+│
+│
+│
 └── README.md
 ```
 
 ---
 
-# 🖥 System Workflow
+## 🖥 System Workflow
 
 1. System initializes all modules.
 2. LCD prompts user to **scan RFID card**.
@@ -110,16 +118,16 @@ Automated-RFID-Attendance-System
 
 ---
 
-# 📷 Hardware Implementation
+## 📷 Hardware Implementation
 
 
 <p align="center">
-  <img src="images/project_hardware.jpg" width="600">
+  <img src="images/project_hardware.png" width="500">
 </p>
 
 > *Actual Automated Employee Attendance System using RFID.*
 
-# 🔬 Simulation
+## 🔬 Simulation
 
 The system was simulated using Proteus Design Suite to verify:
 
@@ -131,7 +139,7 @@ Microcontroller logic
 
 Simulation files are included in the repository.
 
-🎯 Key Features
+## 🎯 Key Features
 
 ✔ Contactless RFID attendance
 ✔ Real-time timestamp logging
@@ -140,19 +148,16 @@ Simulation files are included in the repository.
 ✔ UART-based PC logging
 ✔ Scalable for organizational use
 
-📈 Future Improvements
+## 📈 Future Improvements
 
-Cloud-based attendance database
+- Cloud-based attendance database
+- WiFi or IoT integration
+- Web dashboard for attendance monitoring
+- Mobile app integration
 
-WiFi or IoT integration
+## 👨‍💻 Author
 
-Web dashboard for attendance monitoring
-
-Mobile app integration
-
-👨‍💻 Author
-
-Prashant Gupta
+Prashant Kumar Gupta
 
 Embedded Systems Enthusiast
 Project: RFID Attendance System
