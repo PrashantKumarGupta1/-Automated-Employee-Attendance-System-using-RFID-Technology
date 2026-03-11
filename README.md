@@ -67,7 +67,7 @@ PC Linux Terminal (UART)
 
 ## 📁 Repository Structure
 ```
-Automated-RFID-Attendance-System
+Automated Employee Attendance System using RFID Technology
 │
 ├── docs/
 │ ├── system_architecture.md
