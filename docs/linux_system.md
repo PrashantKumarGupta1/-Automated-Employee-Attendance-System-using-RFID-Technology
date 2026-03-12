@@ -101,13 +101,13 @@ RFID_ID TIME DATE
 
 The Linux program follows these steps:
 
-1️. Open serial port `/dev/ttyUSB0`
-2️. Configure UART settings
-3️. Read data from embedded system
-4️. Extract **RFID ID** and **Time/Date**
-5️. Search employee in database
-6️. Log attendance record
-7️. Repeat continuously
+1️. Open serial port `/dev/ttyUSB0`                          
+2️. Configure UART settings                              
+3️. Read data from embedded system                          
+4️. Extract **RFID ID** and **Time/Date**                                  
+5️. Search employee in database                       
+6️. Log attendance record                  
+7️. Repeat continuously                          
 
 ---
 
