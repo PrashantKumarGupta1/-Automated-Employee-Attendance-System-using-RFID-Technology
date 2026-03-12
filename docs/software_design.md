@@ -274,9 +274,10 @@ Repeat
 ```
 
 ---
+## Flowchart
 
 <p align="center">
-  <img src="../images/flowchart.png" width="330">
+  <img src="../images/flowchart.png" width="340">
 </p>
 
 > *Actual flowchart of the Automated Employee Attendance System using RFID Technology.*
