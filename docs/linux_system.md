@@ -29,9 +29,13 @@ The Linux system performs the following tasks:
 
 ### 🔧 Hardware
 
-- [Linux PC / Laptop](https://en.wikipedia.org/wiki/Linux)
-- [USB-to-UART Converter](https://learn.sparkfun.com/tutorials/usb-to-serial-converter-basics)
-- [RFID Embedded System](https://www.rfidjournal.com/what-is-rfid)
+## Hardware Components
+
+The following hardware components are used in this system:
+
+- **[Linux PC / Laptop](https://en.wikipedia.org/wiki/Linux)** – used to process attendance logs  
+- **[USB-to-UART Converter](https://en.wikipedia.org/wiki/USB-to-serial_adapter)** – enables serial communication between the LPC21xx microcontroller and the Linux system  
+- **[RFID Embedded System](https://en.wikipedia.org/wiki/Radio-frequency_identification)** – used for employee authentication
 
 ### 💻 Software
 
