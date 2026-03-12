@@ -33,9 +33,10 @@ The Linux system performs the following tasks:
 
 The following hardware components are used in this system:
 
-- **[Linux PC / Laptop](https://en.wikipedia.org/wiki/Linux)** – used to process attendance logs  
-- **[USB-to-UART Converter](https://en.wikipedia.org/wiki/USB-to-serial_adapter)** – enables serial communication between the LPC21xx microcontroller and the Linux system  
-- **[RFID Embedded System](https://en.wikipedia.org/wiki/Radio-frequency_identification)** – used for employee authentication
+
+- **[Linux PC / Laptop](https://en.wikipedia.org/wiki/Linux)** – Processes attendance data and stores logs.
+- **[USB-to-UART Converter](https://en.wikipedia.org/wiki/USB-to-serial_adapter)** – Provides serial communication between the embedded system and Linux machine.
+- **[RFID Reader (EM-18)](https://docs.cirkitdesigner.com/component/38a9193f-25eb-4048-aa01-6175c054e38f/em-18-rfid-reader-module)** – Reads RFID employee cards and sends the card ID to the LPC2148 microcontroller.
 
 ### 💻 Software
 
