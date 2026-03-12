@@ -113,10 +113,10 @@ The Linux program follows these steps:
 
 ## 📂 Database File
 
-Employee information is stored in a file called:
+Employee information is stored in a below file:
 
 ```
-database
+[Database](./log_file/database)database
 ```
 
 ### Example Database
