@@ -1,6 +1,6 @@
 # 🐧 Linux System Documentation
 
-## RFID Attendance System
+### RFID Attendance System
 
 ---
 
