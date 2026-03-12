@@ -12,9 +12,9 @@ The software architecture ensures reliable communication between hardware compon
 
 ---
 
-# 1️⃣ Software Requirements
+## 1️⃣ Software Requirements
 
-## Embedded C / C++
+### Embedded C / C++
 
 **Purpose:**  
 Programming language used for developing firmware for both microcontrollers.
@@ -34,7 +34,7 @@ Programming language used for developing firmware for both microcontrollers.
 
 ---
 
-## Keil µVision IDE
+### Keil µVision IDE
 
 **Function:**  
 Integrated Development Environment used for writing, compiling, and debugging embedded programs.
@@ -48,7 +48,7 @@ Integrated Development Environment used for writing, compiling, and debugging em
 
 ---
 
-## Flash Magic
+### Flash Magic
 
 **Function:**  
 Used to upload compiled firmware into the microcontroller flash memory.
@@ -61,7 +61,7 @@ Used to upload compiled firmware into the microcontroller flash memory.
 
 ---
 
-## Linux Operating System
+### Linux Operating System
 
 **Function:**  
 Provides the environment for running the serial communication program that receives attendance data.
@@ -74,7 +74,7 @@ Provides the environment for running the serial communication program that recei
 
 ---
 
-## GCC Compiler
+### GCC Compiler
 
 **Function:**  
 Compiles C/C++ programs on the Linux system.
@@ -83,15 +83,15 @@ Compiles C/C++ programs on the Linux system.
 
 Used to compile the serial communication program:
 ```
-gcc serial.c
-./a.out
+gcc rfid_logger.c -o rfid_logger
+./rfid_logger
 ```
 
 The program reads attendance data transmitted from the microcontroller.
 
 ---
 
-## Terminal Emulator
+### Terminal Emulator
 
 **Function:**  
 Used for monitoring serial communication between the microcontroller and PC.
@@ -109,7 +109,7 @@ Examples include:
 
 ---
 
-# 2️⃣ Software Architecture
+## 2️⃣ Software Architecture
 
 The system firmware is divided into two main parts.
 ```
@@ -134,7 +134,7 @@ RTC (I2C) + LCD (GPIO) + Linux PC (UART)
 
 ---
 
-# 3️⃣ RFID Reader Module (8051)
+## 3️⃣ RFID Reader Module (8051)
 
 The **8051 firmware** handles communication with the EM-18 RFID reader.
 
@@ -154,7 +154,7 @@ Repeat
 
 ---
 
-# 4️⃣ LPC2129 Processing Module
+## 4️⃣ LPC2129 Processing Module
 
 The LPC2129 microcontroller performs the main system operations.
 
@@ -168,7 +168,7 @@ The LPC2129 microcontroller performs the main system operations.
 
 ---
 
-# 5️⃣ RTC Communication Module
+## 5️⃣ RTC Communication Module
 
 The LPC2129 communicates with the **Real Time Clock (RTC)** using the **I²C protocol**.
 
@@ -181,7 +181,7 @@ This allows the system to generate **timestamped attendance records**.
 
 ---
 
-# 6️⃣ LCD Display Module
+## 6️⃣ LCD Display Module
 
 A **16×2 LCD display** provides system status information.
 
@@ -199,7 +199,7 @@ Invalid Card
 
 ---
 
-# 7️⃣ Attendance Logging Module
+## 7️⃣ Attendance Logging Module
 
 Once a valid RFID card is detected:
 
@@ -219,7 +219,7 @@ OUT TIME Mon Apr 12 09:05:36 2025
 
 ---
 
-# 8️⃣ Serial Communication Program (Linux)
+## 8️⃣ Serial Communication Program (Linux)
 
 A C program running on the Linux PC receives attendance records from the microcontroller.
 
@@ -237,7 +237,7 @@ gcc serial.c
 
 ---
 
-# 9️⃣ Simulation
+## 9️⃣ Simulation
 
 Before hardware implementation, the system was tested using **Proteus simulation**.
 
@@ -252,7 +252,7 @@ Simulation files are included in the repository.
 
 ---
 
-# 🔄 Software Flow
+## 🔄 Software Flow
 ```
 Start
 ↓
@@ -283,7 +283,7 @@ Repeat
 > *Actual flowchart of the Automated Employee Attendance System using RFID Technology.*
 ---
 
-# Simulation
+## Simulation
 
 Before hardware implementation, the system was tested using **Proteus simulation**.
 
@@ -296,3 +296,5 @@ Simulation verifies:
 <p align="center">
   <img src="../images/proteus_simulation.jpg" width="450">
 </p>
+
+> *Diagram of Simulation* 
