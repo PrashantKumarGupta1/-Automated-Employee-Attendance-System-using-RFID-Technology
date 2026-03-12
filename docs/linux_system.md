@@ -1,8 +1,12 @@
 # 🐧 Linux System Documentation
-**RFID Attendance System**
+
+## RFID Attendance System
+
+---
 
 ## 📌 Overview
-The Linux application receives RFID attendance data from the embedded hardware through **UART serial communication**.  
+
+The Linux application receives RFID attendance data from the embedded hardware through **UART serial communication**.
 It processes the data, verifies employee details from the database, and logs **IN/OUT attendance records**.
 
 The program is written in **C language** and runs on a **Linux operating system**.
@@ -10,54 +14,61 @@ The program is written in **C language** and runs on a **Linux operating system*
 ---
 
 ## 🎯 Objectives
+
 The Linux system performs the following tasks:
 
-✔ Receive RFID data from microcontroller  
-✔ Extract RFID ID and timestamp  
-✔ Verify employee in database  
-✔ Record attendance (IN / OUT)  
-✔ Store records in log file  
+* ✔ Receive RFID data from microcontroller
+* ✔ Extract RFID ID and timestamp
+* ✔ Verify employee in database
+* ✔ Record attendance (**IN / OUT**)
+* ✔ Store records in log file
 
 ---
 
 ## 🖥 System Requirements
 
-### Hardware
-🔹 Linux PC / Laptop  
-🔹 USB-to-UART converter  
-🔹 RFID embedded system  
+### 🔧 Hardware
 
-### Software
-🔹 Linux OS (Ubuntu / Debian recommended)  
-🔹 GCC Compiler  
+* Linux PC / Laptop
+* USB-to-UART Converter
+* RFID Embedded System
 
-### Libraries Used
-- stdio.h
-- string.h
-- fcntl.h
-- errno.h
-- termios.h
-- unistd.h
+### 💻 Software
+
+* Linux OS (**Ubuntu / Debian recommended**)
+* GCC Compiler
+
+### 📚 Libraries Used
+
+| Library     | Purpose                            |
+| ----------- | ---------------------------------- |
+| `stdio.h`   | Input / Output operations          |
+| `string.h`  | String processing                  |
+| `fcntl.h`   | File control                       |
+| `errno.h`   | Error handling                     |
+| `termios.h` | Serial communication configuration |
+| `unistd.h`  | System calls like read/write       |
 
 ---
 
 ## 🔌 Serial Communication
 
-The embedded system sends attendance data through **UART**.
+The embedded system sends attendance data through **UART communication**.
 
-Device used in Linux:
-```
+### Serial Device Used
+
+```bash
 /dev/ttyUSB0
 ```
 
 ### Serial Configuration
 
-| Parameter | Value |
-|-----------|-------|
-| Baud Rate | 9600 |
-| Data Bits | 8 |
-| Stop Bits | 1 |
-| Parity | None |
+| Parameter    | Value    |
+| ------------ | -------- |
+| Baud Rate    | 9600     |
+| Data Bits    | 8        |
+| Stop Bits    | 1        |
+| Parity       | None     |
 | Flow Control | Disabled |
 
 ---
@@ -65,22 +76,24 @@ Device used in Linux:
 ## 📡 Data Format
 
 Data received from the embedded system:
+
 ```
 RFID_ID TIME DATE
 ```
 
-Example:
+### Example
+
 ```
 123456789111 09:15:22 01/12/2024
 ```
 
 ### Data Fields
 
-| Field | Description |
-|------|-------------|
+| Field   | Description        |
+| ------- | ------------------ |
 | RFID_ID | Unique card number |
-| TIME | Scan time |
-| DATE | Scan date |
+| TIME    | Scan time          |
+| DATE    | Scan date          |
 
 ---
 
@@ -88,62 +101,77 @@ Example:
 
 The Linux program follows these steps:
 
-1️⃣ Open serial port `/dev/ttyUSB0`  
-2️⃣ Configure UART settings  
-3️⃣ Read data from embedded system  
-4️⃣ Extract **RFID ID** and **time/date**  
-5️⃣ Search employee in database  
-6️⃣ Log attendance record  
-7️⃣ Repeat continuously  
+1️⃣ Open serial port `/dev/ttyUSB0`
+2️⃣ Configure UART settings
+3️⃣ Read data from embedded system
+4️⃣ Extract **RFID ID** and **Time/Date**
+5️⃣ Search employee in database
+6️⃣ Log attendance record
+7️⃣ Repeat continuously
 
 ---
 
 ## 📂 Database File
 
-Employee information is stored in:
+Employee information is stored in a file called:
+
 ```
 database
 ```
 
-Example:
+### Example Database
+
 ```
 123456789111 PRASHANT
 987654321234 RAHUL
 ```
 
-The program checks whether the scanned RFID ID exists in this file.
+The system checks whether the scanned RFID card exists in this database.
 
 ---
 
 ## 📝 Log File
 
 Attendance records are stored in:
+
 ```
-log_file
+attendance.csv
 ```
 
-Example entry:
+### Example Entry
+
 ```
-ID=123456789111 NAME=PRASHANT IN-TIME 09:15:22 01/12/2024
+RFID_ID,NAME,TYPE,TIME,DATE
+123456789111,PRASHANT,IN,09:15:22,01/12/2024
+123456789111,PRASHANT,OUT,18:10:33,01/12/2024
 ```
+
+This file can be opened directly in:
+
+* 📊 Microsoft Excel
+* 📊 LibreOffice Calc
+* 📊 Google Sheets
 
 ---
 
 ## ⏱ IN / OUT Logic
 
-The system automatically determines attendance type.
+The system automatically determines attendance type:
 
-✔ Even occurrences → **IN Time**  
-✔ Odd occurrences → **OUT Time**
+| Condition        | Result   |
+| ---------------- | -------- |
+| Even occurrences | IN Time  |
+| Odd occurrences  | OUT Time |
 
-This helps track employee entry and exit.
+This helps track employee **entry and exit times**.
 
 ---
 
 ## 🔄 Continuous Monitoring
 
 The program runs in an infinite loop:
-```
+
+```c
 while(1)
 ```
 
@@ -153,23 +181,31 @@ This allows the system to **continuously monitor RFID scans**.
 
 ## ⚠ Error Handling
 
-The program checks for:
+The program handles common errors such as:
 
-❌ Serial port opening errors  
-❌ Data read errors  
+* ❌ Serial port opening failure
+* ❌ Serial data reading errors
 
-Error messages are printed using `printf()` and `strerror()`.
+Error messages are printed using:
+
+```c
+printf()
+strerror()
+```
 
 ---
 
 ## ▶ Program Execution
 
-Compile program:
-```
+### Compile the Program
+
+```bash
 gcc rfid_logger.c -o rfid_logger
 ```
-Run program:
-```
+
+### Run the Program
+
+```bash
 ./rfid_logger
 ```
 
@@ -177,10 +213,11 @@ Run program:
 
 ## ✅ Advantages
 
-✔ Real-time attendance monitoring  
-✔ Simple database system  
-✔ Low hardware cost  
-✔ Easy integration with embedded systems  
+* ✔ Real-time attendance monitoring
+* ✔ Low-cost hardware implementation
+* ✔ Easy Linux integration
+* ✔ Simple database management
+* ✔ Exportable attendance records
 
 ---
 
@@ -188,4 +225,4 @@ Run program:
 
 The Linux system acts as the **data processing and logging unit** of the RFID Attendance System.
 
-It receives RFID data from the embedded hardware, verifies employees, and stores accurate attendance records automatically.
+It receives RFID data from the embedded hardware, verifies employee records from the database, and stores **accurate attendance logs automatically**.
