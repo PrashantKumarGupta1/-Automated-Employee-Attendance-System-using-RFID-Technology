@@ -40,8 +40,8 @@ The following hardware components are used in this system:
 
 ### 💻 Software
 
-* Linux OS (**Ubuntu / Debian recommended**)
-* GCC Compiler
+- **[Linux Operating System](https://www.linux.org/)** (**[Ubuntu](https://ubuntu.com/)** / **[Debian](https://www.debian.org/)** recommended) – Used to execute the Linux serial communication program and manage attendance logs.
+- **[GNU GCC Compiler](https://gcc.gnu.org/)** – Compiles the Linux C program used for RFID data processing.
 
 ### 📚 Libraries Used
 
