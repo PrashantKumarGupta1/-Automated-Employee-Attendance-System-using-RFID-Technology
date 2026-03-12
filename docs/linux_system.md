@@ -122,8 +122,8 @@ database
 ### Example Database
 
 ```
-123456789111 PRASHANT
-987654321234 RAHUL
+4900C8EC3855 PRASHANT
+4900C86CE30E GANESH
 ```
 
 The system checks whether the scanned RFID card exists in this database.
