@@ -40,8 +40,9 @@ The following hardware components are used in this system:
 
 ### 💻 Software
 
-- **[Linux Operating System](https://www.linux.org/)** (**[Ubuntu](https://ubuntu.com/)** / **[Debian](https://www.debian.org/)** recommended) – Used to execute the Linux serial communication program and manage attendance logs.
-- **[GNU GCC Compiler](https://gcc.gnu.org/)** – Compiles the Linux C program used for RFID data processing.
+- **[Linux Operating System](https://en.wikipedia.org/wiki/Linux)** (**[Ubuntu](https://ubuntu.com/about)** / **[Debian](https://www.debian.org/intro/about)** recommended) – Provides the operating environment for running the serial communication program, handling UART data from the embedded system, and storing attendance logs.
+
+- **[GNU GCC Compiler](https://gcc.gnu.org/onlinedocs/)** – Used to compile the Linux C program responsible for UART communication, RFID card data processing, and attendance log generation.
 
 ### 📚 Libraries Used
 
