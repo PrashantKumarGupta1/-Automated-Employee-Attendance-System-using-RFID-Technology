@@ -88,6 +88,7 @@ Automated Employee Attendance System using RFID Technology
 │ ├── hardware_setup.md
 │ ├── working_principle.md
 │ ├── software_design.md
+│ ├── linux_system.md
 │ └── communication_protocols.md
 │
 ├── images/
@@ -96,16 +97,22 @@ Automated Employee Attendance System using RFID Technology
 │ ├── project_hardware.png
 │ ├── project_output.png
 │ ├── proteus_simulation.jpg
-│ └──system_flow.png
+│ └── system_flow.png
 │
 ├── src/
-│ ├── 
-│ └── 
-│
-│
-├── text_files/
+│ ├── Drivers/
+│ │          ├── delay.c
+│ │          ├── i2c_driver.c
+│ │          ├── intr.c
+│ │          ├── lcd_4bit.c
+│ │          └── uart0.c
+│ │
+│ ├── linux.c
+│ └── main.c
+│ 
+├── log_file/
 │ ├── database
-│ └── log_file
+│ └── attendance.csv
 │
 ├── include/
 │ └── header.h
