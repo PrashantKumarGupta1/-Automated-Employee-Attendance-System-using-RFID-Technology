@@ -116,7 +116,7 @@ The Linux program follows these steps:
 Employee information is stored in a below file:
 
 
-[Database](.log_file/database)
+[Database](log_file/database)
 
 
 ### Example Database
