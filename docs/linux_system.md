@@ -115,9 +115,9 @@ The Linux program follows these steps:
 
 Employee information is stored in a below file:
 
-```
-[Database](./log_file/database)database
-```
+
+[Database](./log_file/database)
+
 
 ### Example Database
 
@@ -171,7 +171,7 @@ This helps track employee **entry and exit times**.
 
 The program runs in an infinite loop:
 
-```c
+```
 while(1)
 ```
 
@@ -188,7 +188,7 @@ The program handles common errors such as:
 
 Error messages are printed using:
 
-```c
+```
 printf()
 strerror()
 ```
@@ -199,13 +199,13 @@ strerror()
 
 ### Compile the Program
 
-```bash
+```
 gcc rfid_logger.c -o rfid_logger
 ```
 
 ### Run the Program
 
-```bash
+```
 ./rfid_logger
 ```
 
