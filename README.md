@@ -101,15 +101,18 @@ Automated Employee Attendance System using RFID Technology
 │
 ├── src/
 │ ├── Drivers/
-│ │          ├── delay.c
-│ │          ├── i2c_driver.c
-│ │          ├── intr.c
-│ │          ├── lcd_4bit.c
-│ │          └── uart0.c
+│ │         ├── delay.c
+│ │         ├── i2c_driver.c
+│ │         ├── intr.c
+│ │         ├── lcd_4bit.c
+│ │         └── uart0.c
 │ │
 │ ├── linux.c
 │ └── main.c
-│ 
+│
+├── linux_code/
+│ └── rfid_logger.c
+│
 ├── log_file/
 │ ├── database
 │ └── attendance.csv
