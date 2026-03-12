@@ -168,12 +168,12 @@ Simulation files are included in the repository.
 
 ## 🎯 Key Features
 
-✔ Contactless RFID attendance
-✔ Real-time timestamp logging
-✔ Dual microcontroller architecture
-✔ LCD user interface
-✔ UART-based PC logging
-✔ Scalable for organizational use
+- Contactless RFID attendance
+- Real-time timestamp logging
+- Dual microcontroller architecture
+- LCD user interface
+- UART-based PC logging
+- Scalable for organizational use
 
 ## 📈 Future Enhancement
 
