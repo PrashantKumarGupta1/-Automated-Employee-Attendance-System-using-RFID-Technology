@@ -29,9 +29,9 @@ The Linux system performs the following tasks:
 
 ### 🔧 Hardware
 
-* Linux PC / Laptop
-* USB-to-UART Converter
-* RFID Embedded System
+- [Linux PC / Laptop](https://en.wikipedia.org/wiki/Linux)
+- [USB-to-UART Converter](https://www.sparkfun.com/tutorials/215)
+- [RFID Embedded System](https://www.rfidjournal.com/what-is-rfid)
 
 ### 💻 Software
 
