@@ -17,11 +17,11 @@ The program is written in **C language** and runs on a **Linux operating system*
 
 The Linux system performs the following tasks:
 
-* ✔ Receive RFID data from microcontroller
-* ✔ Extract RFID ID and timestamp
-* ✔ Verify employee in database
-* ✔ Record attendance (**IN / OUT**)
-* ✔ Store records in log file
+*  Receive RFID data from microcontroller
+*  Extract RFID ID and timestamp
+*  Verify employee in database
+*  Record attendance (**IN / OUT**)
+*  Store records in log file
 
 ---
 
@@ -101,13 +101,13 @@ RFID_ID TIME DATE
 
 The Linux program follows these steps:
 
-1️⃣ Open serial port `/dev/ttyUSB0`
-2️⃣ Configure UART settings
-3️⃣ Read data from embedded system
-4️⃣ Extract **RFID ID** and **Time/Date**
-5️⃣ Search employee in database
-6️⃣ Log attendance record
-7️⃣ Repeat continuously
+*1️⃣ Open serial port `/dev/ttyUSB0`
+*2️⃣ Configure UART settings
+*3️⃣ Read data from embedded system
+*4️⃣ Extract **RFID ID** and **Time/Date**
+*5️⃣ Search employee in database
+*6️⃣ Log attendance record
+*7️⃣ Repeat continuously
 
 ---
 
