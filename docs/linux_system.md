@@ -115,8 +115,7 @@ The Linux program follows these steps:
 
 Employee information is stored in a below file:
 
-
-[Database](../log_file/database)
+[View Database](../log_file/database)
 
 
 ### Example Database
@@ -134,9 +133,7 @@ The system checks whether the scanned RFID card exists in this database.
 
 Attendance records are stored in:
 
-```
-attendance.csv
-```
+[Attendance Log](../log_file/attendance.csv)
 
 ### Example Entry
 
