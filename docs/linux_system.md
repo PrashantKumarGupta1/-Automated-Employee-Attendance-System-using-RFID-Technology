@@ -84,7 +84,7 @@ Example:
 
 ---
 
-# ⚙ Program Working
+## ⚙ Program Working
 
 The Linux program follows these steps:
 
@@ -98,7 +98,7 @@ The Linux program follows these steps:
 
 ---
 
-# 📂 Database File
+## 📂 Database File
 
 Employee information is stored in:
 ```
@@ -115,7 +115,7 @@ The program checks whether the scanned RFID ID exists in this file.
 
 ---
 
-# 📝 Log File
+## 📝 Log File
 
 Attendance records are stored in:
 ```
@@ -129,7 +129,7 @@ ID=123456789111 NAME=PRASHANT IN-TIME 09:15:22 01/12/2024
 
 ---
 
-# ⏱ IN / OUT Logic
+## ⏱ IN / OUT Logic
 
 The system automatically determines attendance type.
 
@@ -140,7 +140,7 @@ This helps track employee entry and exit.
 
 ---
 
-# 🔄 Continuous Monitoring
+## 🔄 Continuous Monitoring
 
 The program runs in an infinite loop:
 ```
@@ -151,7 +151,7 @@ This allows the system to **continuously monitor RFID scans**.
 
 ---
 
-# ⚠ Error Handling
+## ⚠ Error Handling
 
 The program checks for:
 
@@ -162,13 +162,12 @@ Error messages are printed using `printf()` and `strerror()`.
 
 ---
 
-# ▶ Program Execution
+## ▶ Program Execution
 
 Compile program:
 ```
 gcc rfid_logger.c -o rfid_logger
 ```
-
 Run program:
 ```
 ./rfid_logger
@@ -176,7 +175,7 @@ Run program:
 
 ---
 
-# ✅ Advantages
+## ✅ Advantages
 
 ✔ Real-time attendance monitoring  
 ✔ Simple database system  
@@ -185,7 +184,7 @@ Run program:
 
 ---
 
-# 📌 Conclusion
+## 📌 Conclusion
 
 The Linux system acts as the **data processing and logging unit** of the RFID Attendance System.
 
