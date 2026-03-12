@@ -158,11 +158,9 @@ Automated Employee Attendance System using RFID Technology
 
 The system was simulated using Proteus Design Suite to verify:
 
-Serial communication
-
-LCD interface
-
-Microcontroller logic
+- Serial communication
+- LCD interface
+- Microcontroller logic
 
 Simulation files are included in the repository.
 
