@@ -213,11 +213,11 @@ gcc rfid_logger.c -o rfid_logger
 
 ## ✅ Advantages
 
-* ✔ Real-time attendance monitoring
-* ✔ Low-cost hardware implementation
-* ✔ Easy Linux integration
-* ✔ Simple database management
-* ✔ Exportable attendance records
+* Real-time attendance monitoring
+* Low-cost hardware implementation
+* Easy Linux integration
+* Simple database management
+* Exportable attendance records
 
 ---
 
