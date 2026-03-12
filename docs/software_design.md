@@ -276,7 +276,7 @@ Repeat
 ---
 
 <p align="center">
-  <img src="../images/flowchart.png" width="300">
+  <img src="../images/flowchart.png" width="330">
 </p>
 
 > *Actual flowchart of the Automated Employee Attendance System using RFID Technology.*
@@ -293,5 +293,5 @@ Simulation verifies:
 - Microcontroller logic
 
 <p align="center">
-  <img src="../images/proteus_simulation.jpg" width="500">
+  <img src="../images/proteus_simulation.jpg" width="450">
 </p>
