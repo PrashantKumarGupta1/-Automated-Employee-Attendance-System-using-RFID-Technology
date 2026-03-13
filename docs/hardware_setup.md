@@ -109,7 +109,7 @@ Time : 09:02 AM
 
 ---
 
-## Power Supply
+## **[Power Supply](https://www.electronics-tutorials.ws/blog/power-supply.html)**
 
 The system requires a **stable regulated power supply**.
 
