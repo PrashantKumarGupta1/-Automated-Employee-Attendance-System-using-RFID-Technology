@@ -15,7 +15,7 @@ The system uses **two microcontrollers** to handle different tasks efficiently.
 | **[8051 Microcontroller](https://en.wikipedia.org/wiki/8051)** | Handles RFID card reading |
 | **[LPC2129 Microcontroller](https://en.wikipedia.org/wiki/LPC2000)** | Main processing controller |
 | **[EM-18 RFID Reader](https://components101.com/modules/em18-rfid-reader-module)** | Reads RFID tag IDs |
-| **[RFID Cards](https://en.wikipedia.org/wiki/Radio-frequency_identification)** | Unique employee identification cards |
+| **[RFID Cards](https://en.wikipedia.org/wiki/Radio-frequency_identification#Tags)** | Unique employee identification cards |
 | **[RTC Module (DS1307)](https://www.analog.com/en/products/ds1307.html)** | Provides date and time |
 | **[16×2 LCD Display](https://components101.com/displays/16x2-lcd-pinout-datasheet)** | Displays system messages |
 | **[Power Supply](https://en.wikipedia.org/wiki/Power_supply)** | Provides regulated voltage |
