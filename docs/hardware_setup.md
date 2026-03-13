@@ -115,7 +115,7 @@ The system requires a **stable regulated Power Supply.**
 
 Typical configuration:
 ```
-5V regulated supply → Microcontroller
+[5V Regulated Power Supply](https://en.wikipedia.org/wiki/Voltage_regulator) → Microcontroller
 5V → RFID reader
 5V → LCD display
 ```
