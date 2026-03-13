@@ -6,9 +6,9 @@ The Automated Employee Attendance System uses multiple communication protocols t
 
 The primary protocols used in the system are:
 
-- UART (Universal Asynchronous Receiver Transmitter)
-- I²C (Inter-Integrated Circuit)
-- GPIO (General Purpose Input Output)
+- **[UART](https://en.wikipedia.org/wiki/Universal_asynchronous_receiver-transmitter)** (Universal Asynchronous Receiver Transmitter)
+- **[I²C](https://en.wikipedia.org/wiki/I%C2%B2C)** (Inter-Integrated Circuit)
+- **[GPIO](https://en.wikipedia.org/wiki/General-purpose_input/output)** (General Purpose Input Output)
 
 Each protocol is selected based on the specific requirements of the connected devices.
 
@@ -122,10 +122,10 @@ Invalid Card
 
 | Interface | Devices Connected | Purpose |
 |-----------|------------|---------|
-| **[UART](https://en.wikipedia.org/wiki/Universal_asynchronous_receiver-transmitter)** | 8051 ↔ LPC2129 | RFID data transfer |
+| UART | 8051 ↔ LPC2129 | RFID data transfer |
 | UART | LPC2129 ↔ PC | Attendance data logging |
-| **[I²C](https://en.wikipedia.org/wiki/I%C2%B2C)** | LPC2129 ↔ RTC | Time and date retrieval |
-| **[GPIO](https://en.wikipedia.org/wiki/General-purpose_input/output)** | LPC2129 ↔ LCD | User display interface |
+| I²C | LPC2129 ↔ RTC | Time and date retrieval |
+| GPIO | LPC2129 ↔ LCD | User display interface |
 
 ---
 
