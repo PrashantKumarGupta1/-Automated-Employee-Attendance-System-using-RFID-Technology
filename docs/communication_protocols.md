@@ -121,7 +121,7 @@ Invalid Card
 | Interface | Devices Connected | Purpose |
 |-----------|------------|---------|
 | **[UART](https://en.wikipedia.org/wiki/Universal_asynchronous_receiver-transmitter)** | 8051 ↔ LPC2129 | RFID data transfer |
-| **[UART](https://en.wikipedia.org/wiki/Universal_asynchronous_receiver-transmitter)** | LPC2129 ↔ PC | Attendance data logging |
+| UART | LPC2129 ↔ PC | Attendance data logging |
 | **[I²C](https://en.wikipedia.org/wiki/I%C2%B2C)** | LPC2129 ↔ RTC | Time and date retrieval |
 | **[GPIO](https://en.wikipedia.org/wiki/General-purpose_input/output)** | LPC2129 ↔ LCD | User display interface |
 
