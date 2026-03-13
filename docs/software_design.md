@@ -48,7 +48,7 @@ Integrated Development Environment used for writing, compiling, and debugging em
 
 ---
 
-### Flash Magic
+### **[Flash Magic](https://www.flashmagictool.com/)**
 
 **Function:**  
 Used to upload compiled firmware into the microcontroller flash memory.
@@ -61,7 +61,7 @@ Used to upload compiled firmware into the microcontroller flash memory.
 
 ---
 
-### Linux Operating System
+### **[Linux Operating System](https://www.linux.org/)**
 
 **Function:**  
 Provides the environment for running the serial communication program that receives attendance data.
@@ -74,7 +74,7 @@ Provides the environment for running the serial communication program that recei
 
 ---
 
-### GCC Compiler
+### [GNU GCC Compiler](https://gcc.gnu.org/onlinedocs/)**
 
 **Function:**  
 Compiles C/C++ programs on the Linux system.
