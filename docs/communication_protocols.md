@@ -50,9 +50,11 @@ A second UART channel is used to send attendance data to a **Linux terminal on a
 
 ### Data Format Example
 ```
-Employee ID : 1032
+RFID_ID : 4900C8EC3855
+NAME : PRASHANT
+TYPE : IN
 Date : 12/04/2025
-Time : 09:05 AM
+Time : 12:43:51 PM
 ```
 
 The Linux program receives this serial data and stores it in a **database or text file** for attendance reporting.
