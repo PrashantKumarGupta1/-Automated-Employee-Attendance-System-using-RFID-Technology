@@ -162,7 +162,8 @@ The system was simulated using Proteus Design Suite to verify:
 - LCD interface
 - Microcontroller logic
 
-Simulation files are included in the repository.
+Simulation are included in the repository.
+[View Simulation Diagram](images/proteus_simulation.jpg)
 
 ## 🎯 Key Features
 
