@@ -109,9 +109,9 @@ Time : 09:02 AM
 
 ---
 
-## **[Power Supply](https://www.electronics-tutorials.ws/blog/power-supply.html)**
+## Power Supply
 
-The system requires a **stable regulated [Power Supply](https://www.allaboutcircuits.com/textbook/direct-current/chpt-9/what-is-a-power-supply/)**.
+The system requires a **stable regulated Power Supply.**
 
 Typical configuration:
 ```
