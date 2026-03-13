@@ -74,7 +74,7 @@ Provides the environment for running the serial communication program that recei
 
 ---
 
-### [GNU GCC Compiler](https://gcc.gnu.org/onlinedocs/)**
+### [GNU GCC Compiler](https://gcc.gnu.org/onlinedocs/)
 
 **Function:**  
 Compiles C/C++ programs on the Linux system.
@@ -91,7 +91,7 @@ The program reads attendance data transmitted from the microcontroller.
 
 ---
 
-### Terminal Emulator
+### [Terminal Emulator](https://en.wikipedia.org/wiki/Terminal_emulator)
 
 **Function:**  
 Used for monitoring serial communication between the microcontroller and PC.
@@ -111,7 +111,7 @@ Examples include:
 
 ## 2️⃣ Software Architecture
 
-The system firmware is divided into two main parts.
+The system firmware is divided into two main parts 1st one is for card detection (giving RFID_ID to main controller) and 2nd one is for all other processes.
 ```
 RFID Card
 ↓
