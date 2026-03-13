@@ -14,7 +14,7 @@ The software architecture ensures reliable communication between hardware compon
 
 ## 1️⃣ Software Requirements
 
-### **[Embedded C](https://www.geeksforgeeks.org/embedded-c/)** / **[C++](https://isocpp.org/)** 
+### **[Embedded C](https://www.geeksforgeeks.org/embedded-c/)**
 
 **Purpose:**  
 Programming language used for developing firmware for both microcontrollers.
