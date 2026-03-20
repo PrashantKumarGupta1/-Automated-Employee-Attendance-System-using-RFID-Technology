@@ -4,7 +4,7 @@
 
 This test demonstrates end-to-end RFID-based attendance logging, where the embedded system sends timestamped data over UART and a Linux application processes it to generate structured CSV logs with IN/OUT tracking.
 
-👉 It demonstrates a **real-world embedded-to-Linux integration pipeline**.
+👉 It represents a **real-world embedded-to-Linux integration pipeline**.
 
 ---
 
@@ -34,7 +34,7 @@ Linux Serial Read
       ↓
 ID Extraction + Time Parsing
       ↓
-Database Match (Employee पहचान)
+Database Match
       ↓
 IN / OUT Decision Logic
       ↓
@@ -49,12 +49,12 @@ CSV Log Entry (attendance.csv)
 123456789111 01:01:12 01/12/2024
 ```
 
-* First 12 chars → RFID ID  
-* Next → TIME + DATE (combined string)  
+* First 12 characters → RFID ID  
+* Remaining string → TIME + DATE  
 
 ---
 
-### 🔧 Linux Processing Logic (Your Code Behavior)
+### 🔧 Linux Processing Logic (Implementation Mapping)
 
 #### 1️⃣ Read UART Data
 
@@ -67,19 +67,21 @@ read(serial_port, &read_buf, sizeof(read_buf));
 ```c
 for(i = 0; i < 12; i++)
     id[i] = read_buf[i];
+id[i] = '\0';
 ```
 
-#### 3️⃣ Extract Timestamp
+#### 3️⃣ Extract Timestamp (TIME + DATE)
 
 ```c
 for(j = 13; j < 30; j++)
     time[j - 13] = read_buf[j];
+time[j - 13] = '\0';
 ```
 
-#### 4️⃣ Split TIME & DATE
+#### 4️⃣ Split TIME and DATE
 
 ```c
-sscanf(time, "%s %s", only_time, only_date);
+sscanf(time, "%s %s", scan_time, scan_date);
 ```
 
 ---
@@ -88,10 +90,13 @@ sscanf(time, "%s %s", only_time, only_date);
 
 #### ✅ Employee Verification
 
-* Reads from `database`  
-* Matches RFID ID using `strstr()`  
+* Opens `database` file  
+* Matches RFID using `strstr()`  
+* Extracts employee name from matched record  
 
-#### 🔁 IN / OUT Decision
+---
+
+#### 🔁 IN / OUT Decision Logic
 
 ```c
 if(c % 2 == 0)
@@ -110,7 +115,7 @@ else
 File: `attendance.csv`
 
 ```csv
-ID,NAME,STATUS,TIME,DATE
+RFID_ID,NAME,TYPE,TIME,DATE
 123456789111,PRASHANT,IN,10:30:15,12/05/24
 123456789111,PRASHANT,OUT,06:15:42,12/05/24
 ```
@@ -119,25 +124,38 @@ ID,NAME,STATUS,TIME,DATE
 
 ### ⚠️ Special Case Handling
 
-#### 🚫 New Card (Currently Disabled in Code)
+#### 🚫 New Card Registration (Disabled in Code)
 
 ```c
 /*
-if(f == 0)
+if(f==0)
 {
-    // Add new employee to database
-    // Mark first entry as IN
+    printf("CARD NOT FOUND\n");
+    printf("Enter employee name for this RFID\n");
+
+    scanf("%s",name);
+
+    FILE *file=fopen("database","a+");
+    fprintf(file,"%s %s\n",id,name);
+    fclose(file);
+
+    FILE *log_file=fopen("attendance.csv","a+");
+    fprintf(log_file,"%s,%s,IN,%s,%s\n",
+            id,name,scan_time,scan_date);
+    fclose(log_file);
+
+    printf("New employee added successfully\n");
 }
 */
 ```
 
-👉 This block allows:
+👉 This block enables:
 
-* Adding new RFID users  
-* Auto-registering them into database  
-* Logging first attendance  
+* New RFID registration  
+* Auto database update  
+* First attendance marked as **IN**  
 
-(Currently commented for controlled testing)
+(Currently disabled for controlled testing)
 
 ---
 
@@ -145,21 +163,21 @@ if(f == 0)
 
 | Scenario       | Result                    |
 | -------------- | ------------------------- |
-| First Scan     | IN marked                 |
-| Second Scan    | OUT marked                |
-| Valid Employee | Logged in CSV             |
-| Unknown Card   | Ignored (or optional add) |
+| First Scan     | IN entry stored           |
+| Second Scan    | OUT entry stored          |
+| Valid Employee | Logged into CSV file      |
+| Unknown Card   | Ignored (feature disabled)|
 
 ---
 
 ### 🚀 Why This Test is Important
 
-This example proves:
+This test validates:
 
-* ✔ Embedded ↔ Linux communication  
+* ✔ Embedded ↔ Linux UART communication  
 * ✔ Real-time clock integration  
+* ✔ Data parsing and formatting  
 * ✔ File-based database handling  
-* ✔ Practical attendance logic  
-* ✔ Industry-style logging (CSV format)  
+* ✔ CSV-based structured logging  
 
-👉 This is a **complete system-level validation**, not just a module test.
+👉 This is a **complete system-level validation**, not just a unit/module test.
