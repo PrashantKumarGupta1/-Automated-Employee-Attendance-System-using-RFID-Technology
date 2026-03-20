@@ -69,11 +69,11 @@ PC Linux Terminal (UART)
 ## 💻 Software Tools
 
 | Tool | Purpose |
-|----|----|
-| Keil µVision | Embedded C programming |
-| Proteus | Circuit simulation |
-| Embedded C | Firmware development |
-| Linux Terminal | Attendance logging |
+|------|--------|
+| **[Keil µVision IDE](https://www.keil.com/uvision/)** | Embedded C programming |
+| **[Proteus Simulation Software](https://www.labcenter.com/)** | Circuit simulation |
+| **[Embedded C](https://www.geeksforgeeks.org/embedded-c/)** | Firmware development |
+| **[Linux Terminal](https://en.wikipedia.org/wiki/Terminal_emulator)** | Attendance logging |
 
 ---
 
