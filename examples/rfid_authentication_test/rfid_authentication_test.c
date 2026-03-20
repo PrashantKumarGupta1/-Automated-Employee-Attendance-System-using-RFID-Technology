@@ -47,9 +47,13 @@ if(flag1 == -1)
     lcd_cmd(0xC0);               // Second line
 
     lcd_string("Access Denied"); // Deny access
-}
-
-
+   
 // Step 6: (System Idle State)
-// Waiting for next RFID scan
-// LCD shows: "Scan Your Card"
+    delay_ms(2000);             // Waiting for next RFID scan
+   
+    lcd_cmd(0x01);
+   
+    lcd_string("Scan Your Card");
+
+   flag1=0;
+}
