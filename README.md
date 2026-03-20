@@ -78,56 +78,71 @@ PC Linux Terminal (UART)
 ---
 
 ## 📁 Repository Structure
+
 ```
-Automated Employee Attendance System using RFID Technology
+Automated Employee Attendance System using RFID Technology/
 │
-├── docs/
-│ ├── system_architecture.md
-│ ├── hardware_setup.md
-│ ├── working_principle.md
-│ ├── software_design.md
-│ ├── linux_system.md
-│ └── communication_protocols.md
+├── docs/                          # Project documentation
+│   ├── system_architecture.md     # Overall system design & layers
+│   ├── hardware_setup.md          # Circuit connections & components
+│   ├── working_principle.md       # Functional workflow explanation
+│   ├── software_design.md         # Firmware + Linux design details
+│   ├── linux_system.md            # Linux-side implementation
+│   └── communication_protocols.md # UART, I2C communication details
 │
-├── images/
-│ ├── block_diagram.png
-│ ├── flowchart.png
-│ ├── project_hardware.png
-│ ├── project_output.png
-│ ├── proteus_simulation.jpg
-│ └── system_flow.png
+├── images/                        # Diagrams & project visuals
+│   ├── block_diagram.png
+│   ├── flowchart.png
+│   ├── project_hardware.png
+│   ├── project_output.png
+│   ├── proteus_simulation.jpg
+│   └── system_flow.png
 │
-├── src/
-│ ├── Drivers/
-│ │         ├── delay.c
-│ │         ├── i2c_driver.c
-│ │         ├── intr.c
-│ │         ├── lcd_4bit.c
-│ │         └── uart0.c
-│ │
-│ ├── linux.c
-│ └── main.c
+├── examples/                      # Test cases & demonstrations
+│   ├── attendance_logging_test/   # End-to-end attendance test
+│   │   ├── attendance_logging_test.c
+│   │   └── README.md
+│   │
+│   └── rfid_authentication_test/  # RFID validation test
+│       ├── rfid_authentication_test.c
+│       └── README.md
 │
-├── linux_code/
-│ └── rfid_logger.c
+├── src/                           # Embedded firmware source code
+│   ├── Drivers/                   # Peripheral drivers
+│   │   ├── delay.c
+│   │   ├── i2c_driver.c
+│   │   ├── intr.c
+│   │   ├── lcd_4bit.c
+│   │   └── uart0.c
+│   │
+│   └── main.c                     # Main application logic (RFID + RTC)
 │
-├── log_file/
-│ ├── database
-│ └── attendance.csv
+├── linux_code/                    # Linux-side application
+│   └── rfid_logger.c              # UART reader + CSV logger
 │
-├── include/
-│ └── header.h
+├── log_file/                      # Runtime data storage
+│   ├── database                   # Employee RFID database
+│   └── attendance.csv             # Generated attendance logs
 │
+├── include/                       # Header files
+│   └── header.h
 │
+├── .gitignore                     # Ignored files configuration
 │
-├── simulation
-│ └── proteus_design.pdsprj
-│
-│
-│
-│
-└── README.md
+└── README.md                      # Project overview
 ```
+
+---
+
+### 🧠 Structure Overview
+
+- **docs/** → Complete project documentation for understanding design & implementation  
+- **images/** → Visual representation of system architecture & results  
+- **examples/** → Independent test cases for validation & demonstration  
+- **src/** → Embedded firmware (drivers + application logic)  
+- **linux_code/** → PC-side processing and logging  
+- **log_file/** → Stores database and generated attendance logs  
+- **include/** → Header files shared across modules  
 
 ---
 
