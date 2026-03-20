@@ -176,10 +176,10 @@ Simulation are included in the repository.
 
 ## 📈 Future Enhancement
 
-- Cloud-based attendance database
-- WiFi or IoT integration
-- Web dashboard for attendance monitoring
-- Mobile app integration
+- **[Cloud-based Attendance Database](https://aws.amazon.com/what-is-cloud-computing/)** – Store and manage attendance data securely on cloud platforms.
+- **[WiFi / IoT Integration](https://www.ibm.com/topics/internet-of-things)** – Enable wireless communication and remote monitoring using IoT technologies.
+- **[Web Dashboard](https://developer.mozilla.org/en-US/docs/Learn)** – Create a web-based interface for real-time attendance monitoring and analytics.
+- **[Mobile App Integration](https://developer.android.com/guide)** – Develop a mobile application for accessing and managing attendance data on smartphones.
 
 ## 👨‍💻 About Author
 
