@@ -34,8 +34,8 @@ The system uses **two microcontrollers**:
 
 | Microcontroller | Role |
 |----------------|------|
-| 8051 | RFID card reading |
-| LPC2129 | Main system controller |
+| **[8051](https://en.wikipedia.org/wiki/8051)** | RFID card reading |
+| **[LPC2129 ARM7](https://www.nxp.com/products/LPC2129)** | Main system controller |
 
 ### Data Flow
 ```
@@ -56,13 +56,13 @@ PC Linux Terminal (UART)
 
 ## ⚙ Hardware Components
 
-- 8051 Microcontroller
-- LPC2129 ARM7 Microcontroller
-- EM-18 RFID Reader
-- RFID Tags / Cards
-- RTC Module
-- 16×2 LCD Display
-- Power Supply Circuit
+- **[8051 Microcontroller](https://en.wikipedia.org/wiki/8051)**  
+- **[LPC2129 ARM7 Microcontroller](https://www.nxp.com/products/LPC2129)**  
+- **[EM-18 RFID Reader](https://components101.com/modules/em18-rfid-reader-module)**  
+- **[RFID Tags / Cards](https://www.rfidjournal.com/what-is-rfid)**  
+- **[RTC Module (DS1307)](https://www.analog.com/en/products/ds1307.html)**  
+- **[16×2 LCD Display](https://components101.com/displays/16x2-lcd-pinout-datasheet)**  
+- **[Power Supply Circuit](https://en.wikipedia.org/wiki/Power_supply)**  
 
 ---
 
