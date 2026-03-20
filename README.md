@@ -129,6 +129,8 @@ Automated Employee Attendance System using RFID Technology/
 │
 ├── .gitignore                     # Ignored files configuration
 │
+├── RFID PPT.pptx                  # PPT file
+│
 └── README.md                      # Project overview
 ```
 
