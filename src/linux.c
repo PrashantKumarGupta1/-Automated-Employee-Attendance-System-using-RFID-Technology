@@ -1,175 +1,166 @@
-/// C library headers
-#include <stdio.h>      // Standard input-output functions like printf()
-#include <string.h>     // String handling functions like strcmp(), strstr(), memset()
+// C libraries
+#include <stdio.h>      // Standard input-output functions (printf, scanf)
+#include <string.h>     // String handling functions (strstr, strcmp, memset)
 
-// Linux headers
-#include <fcntl.h>      // File control options like O_RDWR
-#include <errno.h>      // Error handling and strerror() function
-#include <termios.h>    // POSIX terminal control definitions for serial communication
-#include <unistd.h>     // Functions like read(), write(), close()
+// Linux headers for serial communication
+#include <fcntl.h>      // File control (open)
+#include <errno.h>      // Error handling
+#include <termios.h>    // UART configuration
+#include <unistd.h>     // read, write, close
 
 int main()
 {
+    int i, j, f;                      // i, j → loop counters | f → flag for card found
+    char id[13], time[30];            // id → 12-byte RFID | time → timestamp string
 
-	/*Start of Program*/
+    while(1)                          // Infinite loop for continuous scanning
+    {
+        int serial_port = open("/dev/ttyUSB0", O_RDWR); // Open serial port
 
-	int i,j,f;                     // Loop variables and flag variable
-	char id[13],time[30];          // Buffers to store RFID ID and time/date
-	//123456789111 01:01:12 01/12/2024  (Example incoming format)
+        struct termios tty;           // Structure to hold UART settings
 
+        if(tcgetattr(serial_port, &tty) != 0) { // Get current UART settings
+            printf("Error %i from tcgetattr: %s\n", errno, strerror(errno));
+            return 1;
+        }
 
-	// Open the serial port. Change device path as needed
-	// (currently set to standard FTDI USB-UART cable device)
-	while(1)                       // Infinite loop to continuously read RFID data
-	{
-		int serial_port = open("/dev/ttyUSB0", O_RDWR);  // Open serial port in read/write mode
+        tty.c_cflag &= ~PARENB;       // Disable parity bit
+        tty.c_cflag &= ~CSTOPB;       // Use 1 stop bit
+        tty.c_cflag &= ~CSIZE;        // Clear data size bits
+        tty.c_cflag |= CS8;           // Set 8-bit data
+        tty.c_cflag &= ~CRTSCTS;      // Disable hardware flow control
+        tty.c_cflag |= CREAD | CLOCAL;// Enable receiver, ignore modem control
 
-		// Create new termios structure
-		struct termios tty;        // Structure used for configuring serial communication
+        tty.c_lflag &= ~ICANON;       // Disable canonical mode (raw input)
+        tty.c_lflag &= ~ECHO;         // Disable echo
+        tty.c_lflag &= ~ECHOE;        // Disable erase echo
+        tty.c_lflag &= ~ECHONL;       // Disable newline echo
+        tty.c_lflag &= ~ISIG;         // Disable signal chars (Ctrl+C etc.)
 
-		// Read existing serial port settings
-		if(tcgetattr(serial_port, &tty) != 0) {
-			printf("Error %i from tcgetattr: %s\n", errno, strerror(errno)); // Print error message
-			return 1;               // Exit program if error occurs
-		}
+        tty.c_iflag &= ~(IXON | IXOFF | IXANY); // Disable software flow control
+        tty.c_iflag &= ~(IGNBRK|BRKINT|PARMRK|ISTRIP|INLCR|IGNCR|ICRNL); // Raw input
 
-		tty.c_cflag &= ~PARENB;    // Disable parity bit
-		tty.c_cflag &= ~CSTOPB;    // Use one stop bit
-		tty.c_cflag &= ~CSIZE;     // Clear data size bits
-		tty.c_cflag |= CS8;        // Set 8 bits per byte
-		tty.c_cflag &= ~CRTSCTS;   // Disable hardware flow control (RTS/CTS)
-		tty.c_cflag |= CREAD | CLOCAL;  // Enable receiver and ignore modem control lines
+        tty.c_oflag &= ~OPOST;        // Disable output processing
+        tty.c_oflag &= ~ONLCR;        // Disable newline conversion
 
-		tty.c_lflag &= ~ICANON;    // Disable canonical mode (raw input)
-		tty.c_lflag &= ~ECHO;      // Disable input echo
-		tty.c_lflag &= ~ECHOE;     // Disable erase echo
-		tty.c_lflag &= ~ECHONL;    // Disable newline echo
-		tty.c_lflag &= ~ISIG;      // Disable special signal characters (Ctrl+C etc.)
+        tty.c_cc[VTIME] = 10;         // Read timeout (1 second)
+        tty.c_cc[VMIN] = 33;          // Minimum 33 bytes required
 
-		tty.c_iflag &= ~(IXON | IXOFF | IXANY);  // Disable software flow control
-		tty.c_iflag &= ~(IGNBRK|BRKINT|PARMRK|ISTRIP|INLCR|IGNCR|ICRNL); // Disable special input handling
+        cfsetispeed(&tty, B9600);     // Set input baud rate
+        cfsetospeed(&tty, B9600);     // Set output baud rate
 
-		tty.c_oflag &= ~OPOST;     // Disable output processing
-		tty.c_oflag &= ~ONLCR;     // Disable newline to CR/LF conversion
+        if (tcsetattr(serial_port, TCSANOW, &tty) != 0) { // Apply UART config
+            printf("Error %i from tcsetattr: %s\n", errno, strerror(errno));
+            return 1;
+        }
 
-		// tty.c_oflag &= ~OXTABS;  // Prevent tab conversion (not supported on Linux)
-		// tty.c_oflag &= ~ONOEOT;  // Prevent removal of EOT characters (not supported on Linux)
+        char read_buf[256];           // Buffer to store received UART data
+        memset(&read_buf, '\0', sizeof(read_buf)); // Clear buffer
 
-		tty.c_cc[VTIME] = 10;      // Timeout for read (1 second = 10 deciseconds)
-		tty.c_cc[VMIN] = 33;       // Minimum characters required for read to return
+        int num_bytes = read(serial_port, &read_buf, sizeof(read_buf)); // Read data
 
-		// Set baud rate to 9600
-		cfsetispeed(&tty, B9600);  // Input speed
-		cfsetospeed(&tty, B9600);  // Output speed
+        if (num_bytes < 0) {          // Check read error
+            printf("Error reading: %s", strerror(errno));
+            return 1;
+        }
 
-		// Apply serial port settings
-		if (tcsetattr(serial_port, TCSANOW, &tty) != 0) {
-			printf("Error %i from tcsetattr: %s\n", errno, strerror(errno)); // Print error
-			return 1;               // Exit if configuration fails
-		}
+        printf("Received: %s\n", read_buf); // Print received data
 
-		// Write to serial port (currently disabled)
-		// unsigned char msg[50] ={'v','e','c','t','o','r','\n'};
-		// write(serial_port, msg, sizeof(msg));
+        for(i = 0; i < 12; i++)       // Extract first 12 chars (RFID ID)
+            id[i] = read_buf[i];
+        id[i] = '\0';                 // Null terminate ID string
 
-		// usleep(100);             // Delay if needed
+        for(j = 13; j < 30; j++)      // Extract timestamp (skip space at index 12)
+            time[j - 13] = read_buf[j];
+        time[j - 13] = '\0';          // Null terminate time string
 
-		// Allocate memory buffer for reading serial data
-		char read_buf [256];       // Buffer to store incoming serial data
+        printf("Timestamp: %s\n", time); // Print timestamp
 
-		// Clear buffer before receiving data
-		memset(&read_buf, '\0', sizeof(read_buf));
+        char only_time[15], only_date[15]; // Buffers for separated values
+        sscanf(time, "%s %s", only_time, only_date); // Split time & date
 
-		// Read data from serial port
-		int num_bytes = read(serial_port, &read_buf, sizeof(read_buf));
+        int c = 0, k;                 // c → entry count | k → loop variable
+        char s1[50], name[20];        // s1 → database line | name → employee name
 
-		// Check if read error occurred
-		if (num_bytes < 0) {
-			printf("Error reading: %s", strerror(errno)); // Print error message
-			return 1;
-		}
+        f = 0;                        // Initialize flag (card not found)
 
-		// Print received serial data
-		printf("%s\n",read_buf);
+        FILE *fp = fopen("database", "r"); // Open database file
 
-		// Extract RFID ID (first 12 characters)
-		for(i=0;i<12;i++)
-			id[i]=read_buf[i];      // Copy RFID number
-		id[i]='\0';                // Null terminate string
+        while(fp && fgets(s1, 50, fp)) // Read each line from database
+        {
+            if(strstr(s1, id))        // Check if ID exists
+            {
+                f = 1;                // Mark as found
 
-		// Extract date and time (remaining part)
-		for(j=13;j<30;j++)
-			time[j-13]=read_buf[j]; // Copy timestamp
-		time[j-13]='\0';           // Null terminate time string
+                for(k = 13; s1[k] != '\n'; k++) // Extract name after ID
+                    name[k - 13] = s1[k];
+                name[k - 13] = 0;     // Null terminate name
 
-		printf("%s\n",time);       // Print extracted time
+                printf("Employee: %s\n", name); // Print name
 
-		int c=0,k;                 // Counter and loop variable
-		char s1[50],s2[50],name[20]; // Buffers for database record, log record, and employee name
+                FILE *fq = fopen("attendance.csv", "a+"); // Open CSV file
 
-		FILE *fp=fopen("database","r"); // Open employee database file
+                fseek(fq, 0, SEEK_END); // Move to end of file
+                if(ftell(fq) == 0)      // If file is empty
+                {
+                    fprintf(fq, "ID,NAME,STATUS,TIME,DATE\n"); // Add header
+                }
 
-		while(fgets(s1,50,fp))     // Read each line from database
-		{     
-			if(strstr(s1,id))      // Check if scanned RFID exists in database
-			{   
-                               f=1;  // Set flag if card found
+                rewind(fq);             // Move pointer to beginning
 
-				for(k=13;s1[k]!='\n';k++)   // Extract employee name from database line
-					name[k-13]=s1[k];
+                char file_id[20], file_name[20], status[10], t[20], d[20];
 
-				name[k-13]=0;       // Null terminate name string
+                while(fscanf(fq, "%[^,],%[^,],%[^,],%[^,],%s\n",
+                             file_id, file_name, status, t, d) != EOF)
+                {
+                    if(strcmp(file_name, name) == 0) // Match employee name
+                        c++;          // Count entries
+                }
 
-				printf("%s\n",name); // Print employee name
+                if(c % 2 == 0)        // Even count → IN
+                {
+                    fprintf(fq, "%s,%s,IN,%s,%s\n",
+                            id, name, only_time, only_date);
+                    printf("IN marked\n");
+                }
+                else                  // Odd count → OUT
+                {
+                    fprintf(fq, "%s,%s,OUT,%s,%s\n",
+                            id, name, only_time, only_date);
+                    printf("OUT marked\n");
+                }
 
-				FILE *fq=fopen("log_file","a+"); // Open log file
+                fclose(fq);           // Close CSV file
+                break;                // Exit loop after match
+            }
+        }
+/*
+        if(f == 0)                    // If ID not found in database
+        {
+            printf("CARD NOT FOUND\nEnter employee name: ");
+            scanf("%s", name);        // Take new employee name
 
-				while(fscanf(fq,"%s",s2)!=-1)   // Read existing log entries
-				{  
-					if(strcmp(s2,name)==0)  // Count occurrences of employee name
-						c++;
-				}
+            FILE *file = fopen("database", "a+"); // Open database file
+            fprintf(file, "%s %s\n", id, name);   // Add new record
+            fclose(file);            // Close database
 
-				// Check IN or OUT entry based on count
-				if(c%2==0)
-				{
-					fprintf(fq,"ID= %s NAME= %s IN-TIME %s \n",id,name,time); // Log IN time
-					fclose(fq);
-					break;
-				}
-				else
-				{
-					fprintf(fq,"ID= %s NAME= %s OUT-TIME %s \n",id,name,time); // Log OUT time
-					fclose(fq);
-					break;
-				}
-}
-}
+            FILE *fq = fopen("attendance.csv", "a+"); // Open CSV
 
-		/*
-		If RFID card not found in database
-		This code allows adding new employee details
-		(Currently disabled)
-		*/
+            fseek(fq, 0, SEEK_END);  // Move to end
+            if(ftell(fq) == 0)       // If empty
+            {
+                fprintf(fq, "ID,NAME,STATUS,TIME,DATE\n"); // Add header
+            }
 
-		/*if(f==0)
-		{
-			printf("CARD NOT FOUND\r\nPLEASE ENTER THE NEW EMPLOYEE NAME\n");
-			printf("enter the name for the rfid\n");
-			scanf("%s",name);
+            fprintf(fq, "%s,%s,IN,%s,%s\n",
+                    id, name, only_time, only_date); // First entry as IN
 
-			FILE *file=fopen("database","a+");
-			fprintf(file,"%s %s\n",id,name);
-			fclose(file);
+            fclose(fq);              // Close CSV
 
-			FILE *log_file=fopen("log_file","a+");
-			fprintf(log_file,"%s %s %s\n",id,name,time);
-			fclose(log_file);
+            printf("New employee added & IN marked\n");
+        }
 
-			printf("new rfid and name added in database and log_file\n");
-		}*/
-
-		fclose(fp);   // Close database file
-	}
-
+        if(fp) fclose(fp);           // Close database file
+        close(serial_port);          // Close serial port*/
+    }
 }
