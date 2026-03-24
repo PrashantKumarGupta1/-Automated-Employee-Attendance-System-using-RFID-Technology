@@ -158,6 +158,7 @@ PC Linux Terminal (UART)
 | **[Proteus Simulation Software](https://www.labcenter.com/)** | Circuit simulation |
 | **[Embedded C](https://www.geeksforgeeks.org/embedded-c/)** | Firmware development |
 | **[Linux Terminal](https://en.wikipedia.org/wiki/Terminal_emulator)** | Attendance logging |
+| **[Flash Magic](https://www.flashmagictool.com/)** | Dumping (uploading) program into microcontroller |
 
 ---
 
