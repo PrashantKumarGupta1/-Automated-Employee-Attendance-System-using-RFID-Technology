@@ -1,4 +1,4 @@
-# 📡 Automated Employee Attendance System using RFID
+# 📡 Automated Employee Attendance System using RFID Technology
 
 An embedded system project that automates employee attendance recording using RFID technology.
 
@@ -28,52 +28,16 @@ Each employee is assigned a unique RFID card. When the card is scanned, the syst
 
 ---
 
-## 🧠 System Architecture
+## 🛠️ Technologies Used
 
-The system uses **two microcontrollers**:
-
-| Microcontroller | Role |
-|----------------|------|
-| **[8051](https://en.wikipedia.org/wiki/8051)** | RFID card reading |
-| **[LPC2129 ARM7](https://en.wikipedia.org/wiki/LPC2000)** | Main system controller |
-
-### Data Flow
-```
-RFID Card
-↓
-EM-18 RFID Reader
-↓
-8051 Microcontroller
-↓ (UART)
-LPC2129 Microcontroller
-↓
-RTC (I²C)
-LCD (GPIO)
-PC Linux Terminal (UART)
-```
-
----
-
-## ⚙ Hardware Components
-
-- **[8051 Microcontroller](https://en.wikipedia.org/wiki/8051)**  
-- **[LPC2129 ARM7 Microcontroller](https://en.wikipedia.org/wiki/LPC2000)** 
-- **[EM-18 RFID Reader](https://components101.com/modules/em18-rfid-reader-module)**  
-- **[RFID Tags / Cards](https://www.rfidjournal.com/what-is-rfid)**  
-- **[RTC Module (DS1307)](https://www.analog.com/en/products/ds1307.html)**  
-- **[16×2 LCD Display](https://components101.com/displays/16x2-lcd-pinout-datasheet)**  
-- **[Power Supply Circuit](https://en.wikipedia.org/wiki/Power_supply)**  
-
----
-
-## 💻 Software Tools
-
-| Tool | Purpose |
-|------|--------|
-| **[Keil µVision IDE](https://www.keil.com/uvision/)** | Embedded C programming |
-| **[Proteus Simulation Software](https://www.labcenter.com/)** | Circuit simulation |
-| **[Embedded C](https://www.geeksforgeeks.org/embedded-c/)** | Firmware development |
-| **[Linux Terminal](https://en.wikipedia.org/wiki/Terminal_emulator)** | Attendance logging |
+- RFID Technology (EM-18 / RC522)
+- 8051 Microcontroller
+- LPC2129 (ARM7) Microcontroller
+- RTC Module (DS1307 / DS3231)
+- 16x2 LCD Display
+- Embedded C / C++
+- UART Serial Communication
+- RS232 / USB Interface
 
 ---
 
@@ -145,6 +109,55 @@ Automated Employee Attendance System using RFID Technology/
 - **linux_code/** → PC-side processing and logging  
 - **log_file/** → Stores database and generated attendance logs  
 - **include/** → Header files shared across modules  
+
+---
+
+## 🧠 System Architecture
+
+The system uses **two microcontrollers**:
+
+| Microcontroller | Role |
+|----------------|------|
+| **[8051](https://en.wikipedia.org/wiki/8051)** | RFID card reading |
+| **[LPC2129 ARM7](https://en.wikipedia.org/wiki/LPC2000)** | Main system controller |
+
+### Data Flow
+```
+RFID Card
+↓
+EM-18 RFID Reader
+↓
+8051 Microcontroller
+↓ (UART)
+LPC2129 Microcontroller
+↓
+RTC (I²C)
+LCD (GPIO)
+PC Linux Terminal (UART)
+```
+
+---
+
+## ⚙ Hardware Components
+
+- **[8051 Microcontroller](https://en.wikipedia.org/wiki/8051)**  
+- **[LPC2129 ARM7 Microcontroller](https://en.wikipedia.org/wiki/LPC2000)** 
+- **[EM-18 RFID Reader](https://components101.com/modules/em18-rfid-reader-module)**  
+- **[RFID Tags / Cards](https://www.rfidjournal.com/what-is-rfid)**  
+- **[RTC Module (DS1307)](https://www.analog.com/en/products/ds1307.html)**  
+- **[16×2 LCD Display](https://components101.com/displays/16x2-lcd-pinout-datasheet)**  
+- **[Power Supply Circuit](https://en.wikipedia.org/wiki/Power_supply)**  
+
+---
+
+## 💻 Software Tools
+
+| Tool | Purpose |
+|------|--------|
+| **[Keil µVision IDE](https://www.keil.com/uvision/)** | Embedded C programming |
+| **[Proteus Simulation Software](https://www.labcenter.com/)** | Circuit simulation |
+| **[Embedded C](https://www.geeksforgeeks.org/embedded-c/)** | Firmware development |
+| **[Linux Terminal](https://en.wikipedia.org/wiki/Terminal_emulator)** | Attendance logging |
 
 ---
 
